@@ -1,5 +1,5 @@
 use solana_program::{
-    account_info::{next_account_info, AccountInfo},
+    account_info::{ AccountInfo},
     entrypoint,
     entrypoint::ProgramResult,
     msg,
@@ -94,7 +94,7 @@ pub fn process_instruction(
         })
         .map_err(|_| {
             msg!("Failed to borrow result account data");
-            solana_program::program_error::ProgramError::AccountBorrowMutFailed
+            solana_program::program_error::ProgramError::AccountBorrowFailed
         })?;
 
     msg!("Result: {}", result);
